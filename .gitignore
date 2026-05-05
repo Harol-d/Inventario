@@ -1,0 +1,19 @@
+# Visual Studio
+.vs/
+.vscode/
+
+# Compilación
+bin/
+obj/
+packages/
+
+# Archivos de usuario
+*.user
+*.suo
+*.sln.docstates
+
+# Logs
+*.log
+
+# Archivos de configuración local
+appsettings.local.json

@@ -38,10 +38,11 @@ namespace Inventario.Services
 
         public Boolean EliminarProveedor(int id)
         {
-            string query = "DELETE FROM Proveedores WHERE IdProveedor=@id";
+            string query = "UPDATE Proveedores SET estado=@estado WHERE IdProveedor=@id";
             using (SqlConnection conn = db.Conectar())
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
+                cmd.Parameters.AddWithValue("@estado", estado);
                 cmd.Parameters.AddWithValue("@id", id);
                 return cmd.ExecuteNonQuery() > 0;
             }

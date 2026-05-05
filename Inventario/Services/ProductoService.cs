@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 using Inventario.Model;
 using Inventario.Db;
 using System.Data.SqlClient;
@@ -47,14 +47,15 @@ namespace Inventario.Services
             }
         }
 
-        public Boolean EliminarProducto(int id)
+        public Boolean EliminarProducto(int id,int Estado)
         {
-            string query = "DELETE FROM Productos WHERE IdProducto=@id";
+            string query = "UPDATE productos SET estado=@estado WHERE IdProducto=@id";
 
             using (SqlConnection conn = db.Conectar())
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
                 cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@estado", estado);
                 return cmd.ExecuteNonQuery() > 0;
             }
         }

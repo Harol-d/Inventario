@@ -1,5 +1,6 @@
 packages
-inventario/bin
-inventario/.vs
-inventario/obj
+bin
+Properties
+obj
 .vs
+inventario.csproj.user

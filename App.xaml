@@ -1,7 +1,7 @@
-﻿<Application x:Class="inventario1.App"
+﻿<Application x:Class="Inventario.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:inventario1"
+             xmlns:local="clr-namespace:Inventario"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

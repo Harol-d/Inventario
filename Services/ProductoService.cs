@@ -28,8 +28,7 @@ namespace Inventario.Services
 
         public Boolean ActualizarProducto(Producto p) 
         {
-            string query = "UPDATE Productos SET Nombre=@nombre, Cantidad=@cantidad, " +
-                           "IdCategoria=@categoria, Precio=@precio WHERE IdProducto=@id";
+            string query = "UPDATE Productos SET Nombre=@nombre, Cantidad=@cantidad, IdCategoria=@categoria, Precio=@precio WHERE IdProducto=@id";
 
             MySqlConnection conn = db.Conectar();
             MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -64,6 +63,7 @@ namespace Inventario.Services
                 producto = new Producto();
                 producto.id= reader.GetInt32("idProducto");
                 producto.nombre = reader.GetString("nombre");
+                producto.cantidad = reader.GetInt32("Cantidad");
                 producto.precio = reader.GetDouble("precio");
                 productos.Add(producto);
             }

@@ -19,7 +19,7 @@ namespace Inventario.Model
         }
         public override string ToString()
         {
-            return "Producto{id=" + id + ", nombre='" + nombre + "'}"+ precio ;
+            return "Total de productos: "+id;
         }
     }
 }

@@ -5,35 +5,80 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Inventario"
         mc:Ignorable="d"
-        Title="Inventario" Height="527" Width="866">
-    <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+        Title="Inventario" Height="600" Width="1000">
 
-        <DataGrid Name="dgProductos" Grid.Row="0" 
-              AutoGenerateColumns="False"
-                  CanUserAddRows="False"
-              Margin="0,0,0,10">
-            <DataGrid.Columns>
-                <DataGridCheckBoxColumn />
-                <DataGridTextColumn Header="ID" Binding="{Binding Path=id}" Width="*" IsReadOnly="True"/>
-                <DataGridTextColumn Header="PRODUCTO" Binding="{Binding Path=nombre}" Width="*" IsReadOnly="True"/>
-                <DataGridTextColumn Header="CANTIDAD" Binding="{Binding Path=cantidad}" Width="Auto" IsReadOnly="True"/>
-                <DataGridTextColumn Header="PRECIO" Binding="{Binding Path=precio}" Width="Auto" IsReadOnly="True"/>
-            </DataGrid.Columns>
-        </DataGrid>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <!-- Columna para el Menú Lateral -->
+            <ColumnDefinition Width="200"/>
+            <!-- Columna para el Contenido Principal -->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <DockPanel Grid.Row="1" LastChildFill="False" Margin="0,10,0,0">
+        <!-- MENU LATERAL (Basado en la imagen) -->
+        <Grid Grid.Column="0" Background="#25333D">
+            <StackPanel Margin="15">
+                <TextBlock Text="Inventario" Foreground="White" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
 
-            <Label Content="" Name="cantidadProductos" DockPanel.Dock="Left" VerticalAlignment="Center"/>
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
-                <Button Content="Agregar" Width="80" Click="AgregarProducto"/>
-                <Button Content="" Width="80" Margin="5,0"/>
-                <!--Button Content="Editar" Width="80" Click="Button_Click"/>-->
+                <!-- Botones del Menú -->
+                <Button Content="📦  Productos" Background="Transparent" Foreground="White" BorderBrush="#55FFFFFF" Margin="0,5" Padding="10,5" HorizontalContentAlignment="Left"/>
+                <Button Content="⚙  Configuración" Background="Transparent" Foreground="White" BorderBrush="#55FFFFFF" Margin="0,5" Padding="10,5" HorizontalContentAlignment="Left"/>
+                <Button Content="📊  Reportes" Background="Transparent" Foreground="White" BorderBrush="#55FFFFFF" Margin="0,5" Padding="10,5" HorizontalContentAlignment="Left"/>
+                <Button Content="ℹ  Acerca de" Background="Transparent" Foreground="White" BorderBrush="#55FFFFFF" Margin="0,5" Padding="10,5" HorizontalContentAlignment="Left"/>
+
+                <Separator Background="#44FFFFFF" Margin="0,20"/>
+
+                <!-- Sección de Usuario -->
+                <StackPanel Orientation="Horizontal" Margin="0,10">
+                    <TextBlock Text="👤" Foreground="White" Margin="0,0,10,0"/>
+                    <TextBlock Text="Usuario: -" Foreground="White"/>
+                </StackPanel>
+                <Button Content="🔓 Cerrar sesión" Background="Transparent" Foreground="White" BorderBrush="#55FFFFFF" Padding="5"/>
+
+                <!-- Footer -->
+                <TextBlock Text="v1.0 - WackyProgramación" Foreground="#66FFFFFF" FontSize="10" Margin="0,30,0,0" HorizontalAlignment="Center"/>
             </StackPanel>
+        </Grid >
 
-        </DockPanel>
+        <!-- CONTENIDO PRINCIPAL (Tu código original) -->
+        <Grid Grid.Column="1" Margin="0,10,0,10" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MinHeight="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="17,0,17,15">
+                <TextBlock Text="Buscar productos:" 
+                   VerticalAlignment="Center" 
+                   FontSize="14" 
+                   FontWeight="SemiBold" 
+                   Margin="0,0,10,0"/>
+                <TextBox x:Name="txtBuscar" 
+                 Width="300" 
+                 Height="25" 
+                 VerticalContentAlignment="Center"
+                 Padding="5,0"/>
+            </StackPanel>
+            <DataGrid Name="dgProductos" Grid.Row="1" 
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      Margin="17,10,17,26" SelectionChanged="dgProductos_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn />
+                    <DataGridTextColumn Header="ID" Binding="{Binding Path=id}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="PRODUCTO" Binding="{Binding Path=nombre}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="CANTIDAD" Binding="{Binding Path=cantidad}" Width="Auto" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="PRECIO" Binding="{Binding Path=precio}" Width="Auto" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DockPanel Grid.Row="2" DockPanel.Dock="Left">
+                <TextBlock Text="Productos: " Margin="20,0,0,0" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                    <Button Content="Agregar" Padding="10,5,10,5"/>
+                    <Button Content="Editar" Margin="20,0,20,0" Padding="10,5,10,5"/>
+                </StackPanel>
+            </DockPanel>
+        </Grid>
     </Grid>
 </Window>

@@ -1,7 +1,6 @@
 ﻿using Inventario.Model;
 using Inventario.Services;
-using System;
-using System.Collections.Generic;
+
 using System.Diagnostics;
 
 namespace Inventario.Controller

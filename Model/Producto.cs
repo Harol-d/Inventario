@@ -7,15 +7,18 @@ namespace Inventario.Model
         public int id { get; set; }
         public string nombre { get; set; }
         public int cantidad { get; set; }
+        public int categoria { get; set; }
         public double precio { get; set; }
+
         public Producto(){}
         public Producto(int id) {
             this.id = id;
         }
-        public Producto(string nombre, int cantidad, double precio) {
+        public Producto(string nombre, int cantidad, double precio,int categoria) {
             this.nombre = nombre;
             this.cantidad = cantidad;
             this.precio = precio;
+            this.categoria = categoria;
         }
         public override string ToString()
         {

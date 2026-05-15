@@ -43,7 +43,7 @@ namespace Inventario.Services
         public List<Categoria> GetCategorias()
         {
             List<Categoria> categorias = new List<Categoria>();
-            string query = "SELECT * FROM Categoria";
+            string query = "SELECT * FROM categorias";
             MySqlConnection conn = db.Conectar();
             try{
                 MySqlCommand cmd = new MySqlCommand(query, conn);

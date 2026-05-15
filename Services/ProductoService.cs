@@ -21,6 +21,7 @@ namespace Inventario.Services
 
             cmd.Parameters.AddWithValue("@nombre", p.nombre);
             cmd.Parameters.AddWithValue("@cantidad", p.cantidad);
+            cmd.Parameters.AddWithValue("@categoria", p.categoria);
             cmd.Parameters.AddWithValue("@precio", p.precio);
 
             return cmd.ExecuteNonQuery() > 0;
@@ -35,7 +36,8 @@ namespace Inventario.Services
             cmd.Parameters.AddWithValue("@id", p.id);
                 cmd.Parameters.AddWithValue("@nombre", p.nombre);
                 cmd.Parameters.AddWithValue("@cantidad", p.cantidad);
-                cmd.Parameters.AddWithValue("@precio", p.precio);
+                cmd.Parameters.AddWithValue("@categoria", p.categoria);
+            cmd.Parameters.AddWithValue("@precio", p.precio);
 
                 return cmd.ExecuteNonQuery() > 0;
 
@@ -59,6 +61,7 @@ namespace Inventario.Services
             MySqlConnection conn = db.Conectar();
             MySqlCommand cmd = new MySqlCommand(query,conn);
             MySqlDataReader reader = cmd.ExecuteReader();
+            
             while (reader.Read()){
                 producto = new Producto();
                 producto.id= reader.GetInt32("idProducto");

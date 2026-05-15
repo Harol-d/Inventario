@@ -9,19 +9,19 @@ namespace Inventario.Controller
         public ProductoService service = new ProductoService();
         public Producto producto;
         //public ProductosView view = new ProductosView();
-        public Boolean AgregarProducto(string nombre,int cantidad,float precio){
-            producto = new Producto(nombre,cantidad,precio);
-            Debug.WriteLine("Se agrego correctamente el producto");
+        public Boolean AgregarProducto(string nombre,int cantidad,float precio,int categoria){
+            producto = new Producto(nombre, cantidad, precio, categoria);
             return service.GuardarProducto(producto);
         }
 
-        public Boolean ActualizarProducto(int id,string nombre, int cantidad, float precio) {
-            producto = new Producto(nombre, cantidad, precio);
+        public Boolean ActualizarProducto(int id,string nombre, int cantidad, float precio,int categoria) {
+            producto = new Producto(nombre, cantidad, precio, categoria);
             producto.id = id;
             return service.ActualizarProducto(producto);
             }
 
         public List<Producto> GetProductos() {
+            //Debug.WriteLine("Objetos"+service.getProductos());
             return service.getProductos();
         }
 

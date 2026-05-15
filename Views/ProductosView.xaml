@@ -5,6 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Inventario.Views"
         mc:Ignorable="d"
-        Title="ProductosView" Height="450" Width="800">
-    
+        Title="Agregar Producto" Height="Auto" Width="400">
+    <Grid>
+        <DockPanel Background="WhiteSmoke">
+            <TextBlock Text="Agregar Nuevo Producto" 
+                       DockPanel.Dock="Top" 
+                       FontSize="20" 
+                       HorizontalAlignment="Center" 
+                       Margin="10"/>
+            <StackPanel Margin="20">
+
+                <Label Content="Nombre del Producto:" Margin="0,10,0,0"/>
+                <TextBox x:Name="txtNombre" Height="25" VerticalAlignment="Center"/>
+
+                <Label Content="Cantidad:" Margin="0,10,0,0"/>
+                <TextBox x:Name="txtCantidad" Height="25"/>
+
+                <Label Content="Precio:" Margin="0,10,0,0"/>
+                <TextBox x:Name="txtPrecio" Height="25"/>
+                
+                <Label Content="Categoria: " Margin="0,10,0,0"/>
+                <ComboBox x:Name="cbCategorias" DisplayMemberPath="nombre" SelectedValuePath="id" IsEditable="False" Height="30" Margin="0,5,0,0"/>
+                <Button x:Name="btnGuardar"
+                        Content="Guardar Producto" 
+                        Margin="0,30,0,0" 
+                        Height="35" 
+                        Background="Aqua"
+                        FontWeight="Bold" Click="AgregarProducto"/>
+
+            </StackPanel>
+        </DockPanel>
+    </Grid>
 </Window>

@@ -42,5 +42,11 @@ namespace Inventario
         {
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ProductosView view = new ProductosView();
+            view.ShowDialog();
+        }
     }
 }

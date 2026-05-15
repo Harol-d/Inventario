@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Inventario"
         mc:Ignorable="d"
-        Title="Inventario" Height="600" Width="1000">
+        Title="Inventario" Height="Auto" Width="Auto">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -74,8 +74,8 @@
             </DataGrid>
             <DockPanel Grid.Row="2" DockPanel.Dock="Left">
                 <TextBlock Text="Productos: " Margin="20,0,0,0" />
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                    <Button Content="Agregar" Padding="10,5,10,5"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Agregar" Padding="10,5,10,5" Click="Button_Click_1"/>
                     <Button Content="Editar" Margin="20,0,20,0" Padding="10,5,10,5"/>
                 </StackPanel>
             </DockPanel>
